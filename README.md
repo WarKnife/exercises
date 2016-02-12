@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/WarKnife/exercises.svg?branch=master)](https://travis-ci.org/WarKnife/exercises)
 ## Решения задач от SolidGem
 
 - [Z1] (./src/Exercises/Factorial.hs)

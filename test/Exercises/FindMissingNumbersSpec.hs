@@ -16,7 +16,7 @@ spec =
       it "finds nothing" $ do
         findMissingPair [1..10]     `shouldBe` Nothing
         findMissingPair [1,2,3,5,6] `shouldBe` Nothing
-    it "finds first two numbers that are missed in sequence from 1 to 1000000" $
+    it "finds two numbers that are missed in sequence from 1 to 1000000" $
       property $
         \(NonNegative a) (NonNegative b) -> (0 < a && a < b  && b < 1000000)
         ==>

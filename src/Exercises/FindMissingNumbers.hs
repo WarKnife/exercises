@@ -2,12 +2,15 @@ module Exercises.FindMissingNumbers (findMissingPair) where
 
 findMissingPair :: [Integer] -> Maybe (Integer, Integer)
 findMissingPair [] = Nothing
-findMissingPair ls = findMP (1, []) ls
+findMissingPair s = findMP (1, []) s
   where
-    findMP (i, [a,b]) _      = Just (a,b)
-    findMP _          []     = Nothing
-    findMP (i, ys)    (x:xs)
-      | i == x    = findMP (succ i, ys) xs
-      | otherwise = if succ i == x
-                      then findMP (i+2, ys++[i]) xs
-                      else Just   (i, succ i)
+    findMP (_, [a,b])       _            = Just (a,b)
+    findMP _                []           = Nothing
+    findMP (i, missings)    (current:xs)
+      | i == current    = findMP (nextI, missings) xs
+      | otherwise       = if nextI == current
+                            then findMP (succ nextI,
+                                         missings++[i]) xs
+                            else Just   (i, nextI)
+      where nextI = succ i
+

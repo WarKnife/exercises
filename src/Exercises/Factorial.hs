@@ -6,4 +6,5 @@ getFactOf n
   | otherwise = computeFact n
         where
           computeFact 0 = 1
-          computeFact n = product [1..n]
+          -- computeFact n = product [1..n]
+          computeFact n = n * computeFact (n - 1)
